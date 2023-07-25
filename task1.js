@@ -20,3 +20,12 @@ function textReverser(text){
 }
 
 console.log(textReverser("hello world"));
+
+
+/* ----------------------------
+      Solution Two:
+------------------------------- */
+
+const stringReverser = text => text.split('').reduce((previous, present) => present +  previous, '' );
+
+console.log(stringReverser("hello world"));
