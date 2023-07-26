@@ -6,21 +6,22 @@ Task 4: Create a function that takes a sorted array of numbers and a target valu
  */
 
 
-const twoSum = (arr, target) => {
-  const result = [];
+ const twoIndices = (arr, target) => {
+  const allNumbers = {};
 
-  for( let i = 0; i < arr.length; i++){
-
-    for( let j = i + 1; j < arr.length; j++){
-
-      if((arr[i] + arr[j] === target)){
-        result.push(i);
-        result.push(j);
-        return result;
-      }
+  for (let i = 0; i < arr.length; i++) {
+    const firstNum = arr[i];
+    const secondNum = target - firstNum;
+    if (allNumbers.hasOwnProperty(secondNum)) {
+      const firstIndex = allNumbers[secondNum];
+      return [firstIndex, i];
     }
+
+    allNumbers[firstNum] = i;
   }
+
+  return [];
 }
 
-
-console.log(twoSum([1, 3, 6, 8, 11, 15], 9));
+// Example usage:
+console.log(twoIndices([1, 3, 6, 8, 11, 15], 9)); 
